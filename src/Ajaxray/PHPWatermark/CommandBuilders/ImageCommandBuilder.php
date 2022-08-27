@@ -38,10 +38,10 @@ final class ImageCommandBuilder extends AbstractCommandBuilder implements Waterm
 
         if ($this->isTiled()) {
             $size = $this->getTextTileSize();
-            $command = "convert $size xc:none  $font -$anchor $draw miff:- ";
+            $command = "magick $size xc:none  $font -$anchor $draw miff:- ";
             $command .= " | composite -tile - $source  $destination";
         } else {
-            $command = "convert $source $font $draw $destination";
+            $command = "magick $source $font $draw $destination";
         }
 
         return $command;

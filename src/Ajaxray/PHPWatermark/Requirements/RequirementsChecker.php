@@ -6,7 +6,7 @@ class RequirementsChecker
 {
     public function ensureImagemagickInstallation(): bool
     {
-        exec("convert -version", $out, $returnCode);
+        exec("magick -version", $out, $returnCode);
 
         if ($returnCode !== 0) {
             throw new \BadFunctionCallException("ImageMagick not found in this system.");
